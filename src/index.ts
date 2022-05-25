@@ -10,6 +10,11 @@
 
 export default {
   async fetch(request: Request): Promise<Response> {
-    return new Response("Hello World!");
+    return new Response("Hello World!", {
+      headers: {
+        'Access-Control-Allow-Headers': '*',
+        'Access-Control-Allow-Origin': '*',
+      }
+    });
   },
 };
