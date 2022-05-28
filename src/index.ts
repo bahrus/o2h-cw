@@ -74,7 +74,7 @@ export default {
     </form>
     <div -innerHTML id=target></div>
     <script type=module>
-      import 'https://esm.run/be-reformable@0.0.45';
+      import 'https://esm.run/be-reformable@0.0.46';
     </script>
   </body>
 </html>
