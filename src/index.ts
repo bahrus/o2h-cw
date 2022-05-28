@@ -56,6 +56,9 @@ export default {
           label {
             display: block;
           }
+          input {
+            width:calc(100vw - 150px);
+          }
     </style>
   </head>
   <body>
