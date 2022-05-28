@@ -13,6 +13,7 @@
     "booleanPropValue": "<input type='checkbox' $0>",
     "booleanPropClose": "</label>",
     "arrayPropOpen": "<details><summary>$0</summary>",
+    "arraySummaryPath": "name",
     "arrayPropClose": "</details>",
     "arrayItemOpen": "",
     "arrayItemClose": ""
