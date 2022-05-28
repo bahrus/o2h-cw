@@ -4,24 +4,27 @@ import {MayItBe as mib} from '../node_modules/may-it-be/types';
 import json from './usageConfig.json' assert {type: 'json'};
 import o2hConfig from './o2hConfig.json' assert {type: 'json'};
 import {Usage} from '../types';
+import { O2HConfig } from 'o2h';
 
+const suggestedUsage: Usage = {
+  baseProxy: 'https://api.nasa.gov',
+  o2hConfigPath: 'https://unpkg.com/o2h-cw@0.0.0/src/o2hConfig.json',
+  Accept: 'text/html'
+};
 export function doUsage(sw: (s: string) => void) : Promise<void>{
   console.log(json);
   return new Promise((resolve) => {
-    const usage: Usage = {
-      'baseProxy': 'https://api.nasa.gov',
-      Accept: 'text/html'
-    };
-    const instance = o2h(usage, sw, json);
+
+    const instance = o2h(suggestedUsage, sw, json as O2HConfig);
     instance.addEventListener('done', e => {
       resolve();
     });
   });
 }
 
-export function doO2H(sw: (s: string) => void, obj: any) : Promise<void>{
+export function doO2H(sw: (s: string) => void, obj: any, config: O2HConfig) : Promise<void>{
   return new Promise((resolve) => {
-    const instance = o2h(obj, sw, o2hConfig);
+    const instance = o2h(obj, sw, config);
     instance.addEventListener('done', e => {
       resolve();
     });
@@ -91,13 +94,14 @@ export default {
     const h = request.headers;
     const usage: Usage = {
       baseProxy: h.get('baseProxy')!,
-      Accept: h.get('Accept')!
+      Accept: h.get('Accept')!,
+      o2hConfigPath: h.get('o2hConfigPath')!,
     };
     
     const reduced = request.url.replace("https://", "");
     const idxOfSlash = reduced.indexOf("/");
     const rest = reduced.substring(idxOfSlash + 1);
-    const url = usage['baseProxy'] + "/" + rest;
+    const url = usage.baseProxy + "/" + rest;
     const response = await fetch(url);
     const contentType = response.headers.get('content-type');
     if(contentType && contentType.indexOf('application/json') >= 0){
@@ -108,7 +112,12 @@ export default {
         const sw = function(s: string){
           arr.push(s);
         }
-        await doO2H(sw, json);
+        let config: O2HConfig = o2hConfig as O2HConfig;
+        if(usage.o2hConfigPath !== suggestedUsage.o2hConfigPath){
+          const configResponse = await fetch(usage.o2hConfigPath);
+          config = await configResponse.json();
+        }
+        await doO2H(sw, json, config);
         return new Response(arr.join(''), {
           headers: {
             'Access-Control-Allow-Headers': '*',
