@@ -60,8 +60,10 @@ export default {
             width:calc(100vw - 150px);
           }
     </style>
+    <title>Sample Usage</title>
   </head>
   <body>
+    <h1>Sample Usage</h1>
     ${arr.join('\n')}
 
     <form action=neo/rest/v1/feed target=[-innerHTML] ${{
@@ -70,13 +72,18 @@ export default {
         headerFormSubmitOn: 'input',
       }
     } as mib}>
-      <input name=api_key value=SDaBXo5Jpx9S7h6r79ki7bxqVJZZKKnTcOn6WRNq>
-      <label for='start_date'>From:</label>
+      <fieldset>
+        <legend>Sample Form -- <a href="https://api.nasa.gov/" target=_blank>Nasa API</a></legend>
+      
+        <label for=api-ley>API Key:</label>
+        <input name=api_key id=api_key value=SDaBXo5Jpx9S7h6r79ki7bxqVJZZKKnTcOn6WRNq>
+        <label for='start_date'>From:</label>
         <input be-persistent type='date' id='start_date' name='start_date' required>
         <label for='end_date'>To:</label>
         <input required be-persistent be-observant='{
             "min": {"observe": "#start_date",  "on": "input", "vft": "value"}
         }' type='date' id='end_date' name='end_date'>
+      </fieldset>
     </form>
     <div -innerHTML id=target></div>
     <script type=module>

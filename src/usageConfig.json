@@ -1,6 +1,6 @@
 {
-    "wrapperOpen": "<form id=usage>",
-    "wrapperClose": "</form>",
+    "wrapperOpen": "<form id=usage><fieldset><legend>Headers</legend>",
+    "wrapperClose": "</fieldset></form>",
     "objectPropOpen": "<details><summary>$0</summary>",
     "objectPropClose": "</details>",
     "stringPropOpen": "<label>$0:",
