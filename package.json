@@ -12,8 +12,8 @@
     "url": "git+https://github.com/bahrus/o2h-cw.git"
   },
   "dependencies": {
-    "o2h": "0.0.1",
-    "may-it-be": "0.0.162"
+    "o2h": "0.0.2",
+    "may-it-be": "0.0.163"
   },
   "author": "",
   "license": "MIT",
