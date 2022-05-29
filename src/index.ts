@@ -68,6 +68,7 @@ export default {
 
     <form action=neo/rest/v1/feed target=[-innerHTML] ${{
       beReformable: {
+        autoSubmit: true,
         headerFormSelector: '#usage',
         headerFormSubmitOn: 'input',
       }
@@ -87,7 +88,7 @@ export default {
     </form>
     <div -innerHTML id=target></div>
     <script type=module>
-      import 'https://esm.run/be-reformable@0.0.46';
+      import 'https://esm.run/be-reformable@0.0.47';
     </script>
   </body>
 </html>
