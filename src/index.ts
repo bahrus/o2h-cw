@@ -33,13 +33,51 @@ export function doO2H(sw: (s: string) => void, obj: any, config: O2HConfig) : Pr
 
 export default {
   async fetch(request: Request): Promise<Response> {
-    const arr: string[] = [];
+    let responseStr = "";
+    if(request.url.indexOf('?') === -1){
+      responseStr = html`
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Usage</title>
+    <style>
+          @import "https://unpkg.com/open-props@1.3.16";
+          @import "https://unpkg.com/open-props@1.3.16/normalize.min.css";
+    </style>
+  </head>
+  <body>
+    <h1>Basic Usage</h1>
+    <p>
+       Welcome to the object to html cloud worker service (o2h-cw).
+    </p>
 
+    <p>
+      Please append a query string for a third party api you want to use.  This page will then generate a sample form, where you can indicate what the proxy URL is,
+      and which will allow you to copy the HTML markup to your local project file.
+    </p>
+    
+    <p>
+      Here's an <a href="neo/rest/v1/feed?api_key=SDaBXo5Jpx9S7h6r79ki7bxqVJZZKKnTcOn6WRNq&start_date=2022-06-01&end_date=2022-0602">example, from the NASA API.</a>
+    </p>
+  </body>
+</html>
+      `;
+      return new Response(responseStr, {
+        headers: {
+          'Access-Control-Allow-Headers': '*',
+          'Access-Control-Allow-Origin': '*',
+          'content-type': 'text/html;charset=UTF-8',
+        }
+      }); 
+    }
+    const arr: string[] = [];
     const sw = function(s: string){
       arr.push(s);
     }
 
-    let responseStr = "Hello World!"
+    
     if(!request.headers.has('baseProxy')){
 
       await doUsage(sw);
