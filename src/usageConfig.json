@@ -1,19 +1,9 @@
 {
-    "wrapperOpen": "<form id=usage><fieldset><legend>Headers</legend>",
-    "wrapperClose": "</fieldset></form>",
-    "objectPropOpen": "<details><summary>$0</summary>",
-    "objectPropClose": "</details>",
-    "stringPropOpen": "<label>$0:",
-    "stringPropValue": "<input type='text' name='$1' value='$0'>",
-    "stringPropClose": "</label>",
-    "numberPropOpen": "<label>$0:",
-    "numberPropValue": "<input type='number' value='$0'>",
-    "numberPropClose": "</label>",
-    "booleanPropOpen": "<label>$0:",
-    "booleanPropValue": "<input type='checkbox' $0>",
-    "booleanPropClose": "</label>",
-    "arrayPropOpen": "<details><summary>$0</summary>",
-    "arrayPropClose": "</details>",
-    "arrayItemOpen": "",
-    "arrayItemClose": ""
+    "wrapper": ["<form id=usage><fieldset><legend>Headers</legend>", "</fieldset></form>"],
+    "objectProp": ["<details><summary>$0</summary>", "</details>"],
+    "stringProp": "<label>${label}: <input type='text' name='${path}' value='${value}' ${mib}></label>",
+    "numberProp": "<label>${label}: <input type='number'  name='${path}'  value='${value}' ${mib}></label>",
+    "booleanProp": "<label>${label}: <input type='checkbox'  name='${path}' ${checked} ${mib}></label>",
+    "arrayProp": ["<details><summary>${label}</summary>", "</details>"],
+    "arraySummaryPath": "name"
 }

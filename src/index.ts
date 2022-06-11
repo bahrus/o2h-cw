@@ -38,14 +38,8 @@ export default {
       responseStr = html`
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    ${snippets.headerStyle}
     <title>Basic Usage</title>
-    <style>
-          @import "https://unpkg.com/open-props@1.3.16";
-          @import "https://unpkg.com/open-props@1.3.16/normalize.min.css";
-    </style>
   </head>
   <body>
     <h1>Basic Usage</h1>
@@ -59,7 +53,7 @@ export default {
     </p>
     
     <p>
-      Here's an <a href="neo/rest/v1/feed?api_key=SDaBXo5Jpx9S7h6r79ki7bxqVJZZKKnTcOn6WRNq&start_date=2022-06-01&end_date=2022-0602">example, from the NASA API.</a>
+      Here's an <a href="neo/rest/v1/feed?api_key=SDaBXo5Jpx9S7h6r79ki7bxqVJZZKKnTcOn6WRNq&start_date=2022-06-01&end_date=2022-06-02">example, from the NASA API.</a>
     </p>
   </body>
 </html>
@@ -81,30 +75,29 @@ export default {
     if(!request.headers.has('baseProxy')){
 
       await doUsage(sw);
+      const fields: string[] = [];
+      const split = request.url.split('?');
+      const ps = new URLSearchParams(split[1]);
+      for(const p of ps.entries()){
+        fields.push(html`
+        <label>
+          ${p[0]}:
+          <input type="text" name="${p[0]}" value="${p[1]}"/>
+        </label>
+`
+        );
+      }
       responseStr = html`
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-          @import "https://unpkg.com/open-props@1.3.16";
-          @import "https://unpkg.com/open-props@1.3.16/normalize.min.css";
-          @import "https://unpkg.com/open-props/buttons.min.css";
-          label {
-            display: block;
-          }
-          input {
-            width:calc(100vw - 150px);
-          }
-    </style>
+    ${snippets.headerStyle}
     <title>Sample Usage</title>
   </head>
   <body>
     <h1>Sample Usage</h1>
     ${arr.join('\n')}
 
-    <form action=neo/rest/v1/feed target=[-innerHTML] ${{
+    <form action=/neo/rest/v1/feed target=[-innerHTML] ${{
       beReformable: {
         autoSubmit: true,
         headerFormSelector: '#usage',
@@ -112,16 +105,8 @@ export default {
       }
     } as mib}>
       <fieldset>
-        <legend>Sample Form -- <a href="https://api.nasa.gov/" target=_blank>Nasa API</a></legend>
-      
-        <label for=api-ley>API Key:</label>
-        <input name=api_key id=api_key value=SDaBXo5Jpx9S7h6r79ki7bxqVJZZKKnTcOn6WRNq>
-        <label for='start_date'>From:</label>
-        <input be-persistent type='date' id='start_date' name='start_date' required>
-        <label for='end_date'>To:</label>
-        <input required be-persistent be-observant='{
-            "min": {"observe": "#start_date",  "on": "input", "vft": "value"}
-        }' type='date' id='end_date' name='end_date'>
+        <legend>Sample Form</legend>
+        ${fields.join('\n')}
       </fieldset>
     </form>
     <div -innerHTML id=target></div>
@@ -181,3 +166,19 @@ export default {
     
   },
 };
+
+const snippets = {
+  headerStyle: html`
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+          @import "https://unpkg.com/open-props@1.3.16";
+          @import "https://unpkg.com/open-props@1.3.16/normalize.min.css";
+          @import "https://unpkg.com/open-props/buttons.min.css";
+          label{
+            display: block;
+          }
+    </style>
+  `,
+}
