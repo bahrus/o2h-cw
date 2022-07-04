@@ -24,7 +24,7 @@ export default {
     const idxOfSlash = strippedOfProtocol.indexOf("/");
     const rest = unescape(strippedOfProtocol.substring(idxOfSlash + 1));
     if(rest.length < 1){
-      const dest = 
+      const dest = 'https://unpkg.com/o2h-cw/demo/o2h-view.html';
       return Response.redirect(dest, 301)
     }
     const newUrl = rest;
