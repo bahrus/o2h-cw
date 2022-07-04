@@ -5,15 +5,22 @@
   "main": "index.js",
   "type":"module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve:wrangler": "npx wrangler dev",
+    "serve:may-it-serve": "node node_modules/may-it-serve/serve.js",
+    "dev": "concurrently npm:serve:*"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bahrus/o2h-cw.git"
   },
   "dependencies": {
-    "o2h": "0.0.4",
+    "o2h": "0.0.9",
     "may-it-be": "0.0.163"
+  },
+  "devDependencies": {
+    "may-it-serve": "0.0.0",
+    "concurrently": "7.2.1"
   },
   "author": "",
   "license": "MIT",
