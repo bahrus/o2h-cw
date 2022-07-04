@@ -20,10 +20,13 @@ export function doO2H(sw: (s: string) => void, obj: any, config: O2HConfig) : Pr
 export default {
   async fetch(request: Request): Promise<Response> {
     const url = request.url;
-    console.log({url});
     const strippedOfProtocol = url.replace('https://', '').replace('http://', '');
     const idxOfSlash = strippedOfProtocol.indexOf("/");
     const rest = unescape(strippedOfProtocol.substring(idxOfSlash + 1));
+    if(rest.length < 1){
+      const dest = 
+      return Response.redirect(dest, 301)
+    }
     const newUrl = rest;
     const response = await fetch(newUrl);
     const contentType = response.headers.get('content-type');
