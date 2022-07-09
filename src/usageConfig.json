@@ -1,9 +1,0 @@
-{
-    "wrapper": ["<form id=usage><fieldset><legend>Headers</legend>", "</fieldset></form>"],
-    "objectProp": ["<details><summary>$0</summary>", "</details>"],
-    "stringProp": "<label>${label}: <input type='text' name='${path}' value='${value}' ${mib}></label>",
-    "numberProp": "<label>${label}: <input type='number'  name='${path}'  value='${value}' ${mib}></label>",
-    "booleanProp": "<label>${label}: <input type='checkbox'  name='${path}' ${checked} ${mib}></label>",
-    "arrayProp": ["<details><summary>${label}</summary>", "</details>"],
-    "arraySummaryPath": "name"
-}

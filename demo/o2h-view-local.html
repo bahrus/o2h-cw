@@ -10,22 +10,37 @@
         @import "https://unpkg.com/open-props/normalize.min.css";
         @import "https://unpkg.com/open-props/buttons.min.css";
         label{
-            display:block;
+            display:flex;
+            margin:10px;
+        }
+        form.main-form input {
+            width: calc(100vw - 120px);
         }
     </style>
 </head>
 <body>
+    <h1>o2h service usage</h1>
+    <h2>Introduction</h2>
+    <div>The o2h service aims to provide a codeless way of integrating any third-party RESTful service that returns JSON, but providing it in a format most amenable to the browser -- the service provides a canonical HTML transformation,
+        based on a combination of reflection on the data, combined with a (customizable) configuration
+    </div>
+
     <form
+        class='main-form'
         action="http://localhost:8787/"
-        target='[-innerHTML]'
+        target="[-innerHTML]"
         be-persistent='{
             "where":{
-                "idb": true
+                "idb": true,
+                "hash": true
             },
             "what":{
                 "innerHTML": {
                     "beBeatified": true
                 }
+            },
+            "when": {
+                "input": true
             },
             "persistOnUnload": true
         }' 
@@ -39,7 +54,13 @@
             Proxy to: 
             <input required name='proxy-to' type='url'>
         </label>
-        <label be-typed be-clonable be-delible></label>
+        <label>
+            <label>
+                Output config:
+                <input name="x38d47cd9-8a95-4037-9e71-d63f6416a6d5" value="http://localhost:3030/src/o2hConfigReadOnly.json">
+            </label>
+        </label>
+        <label be-typed be-clonable be-delible>[Click on gear/settings button to set name of first parameter]</label>
         <button type='submit'>Submit</button>
     </form> 
     <div -innerHTML></div>
@@ -57,10 +78,10 @@
         }
         </script> -->
     <script type="module" crossorigin="anonymous" >
-        import "https://esm.run/be-persistent@0.0.21";
+        import "https://esm.run/be-persistent@0.0.24";
         //import "../be-persistent.js";
-        import "https://esm.run/be-typed@0.0.4";
-        import "https://esm.run/be-clonable@0.0.5";
+        import "https://esm.run/be-typed@0.0.5";
+        import "https://esm.run/be-clonable@0.0.6";
         import "https://esm.run/be-delible@0.0.6";
         import "https://esm.run/be-reformable@0.0.48";
         import "https://esm.run/be-valued@0.0.1"

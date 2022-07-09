@@ -1,0 +1,27 @@
+{
+    "wrapper": ["<form>", "children", "</form>"],
+    "objectProp": ["<details><summary>", "label", "</summary>", "children", "</details>"],
+    "stringProp": [
+        "<label>", "label", 
+            ": <input readonly type='text' name='", "path", "' value='", "value", 
+        "'></label>"
+    ],
+    "numberProp": [
+        "<label>", "label", 
+            ": <input readonly type='number' name='", "path", "' value='", "value", 
+        "'></label>"
+    ],
+    "booleanProp": [
+        "<label>", "label", 
+            ": <input readonly type='checkbox' name='", "path", "' ", "checked", 
+        "></label>"
+    ],
+    "arrayProp": [
+        "<details><summary>", 
+            "label",
+        "</summary>", 
+            "children",
+        "</details>"
+    ],
+    "arraySummaryPath": "name"
+}

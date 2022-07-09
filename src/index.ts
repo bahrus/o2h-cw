@@ -4,6 +4,7 @@ import o2hConfig from './o2hConfig.json' assert {type: 'json'};
 import { O2HConfig } from 'o2h';
 
 
+
 export function doO2H(sw: (s: string) => void, obj: any, config: O2HConfig) : Promise<void>{
   return new Promise((resolve) => {
     const instance = o2h(obj, sw, config);
@@ -19,7 +20,9 @@ export function doO2H(sw: (s: string) => void, obj: any, config: O2HConfig) : Pr
 
 export default {
   async fetch(request: Request): Promise<Response> {
+    const configQryP = "x38d47cd9-8a95-4037-9e71-d63f6416a6d5";
     const url = request.url;
+
     const strippedOfProtocol = url.replace('https://', '').replace('http://', '');
     const idxOfSlash = strippedOfProtocol.indexOf("/");
     const rest = unescape(strippedOfProtocol.substring(idxOfSlash + 1));
@@ -38,7 +41,16 @@ export default {
         const sw = function(s: string){
           arr.push(s);
         }
-        const config = o2hConfig as any as O2HConfig;
+        let config = o2hConfig as any as O2HConfig;
+        const u = new URL(url);
+        const configOverride = u.searchParams.get(configQryP);
+        console.log('configOverride = ' + configOverride);
+        if(configOverride !== null && configOverride !== 'https://unpkg.com/o2h-cw/src/o2hConfig.json'){
+          //TODO:  cache
+          const resp = await fetch(configOverride);
+          const txt = await resp.text();
+          config = JSON.parse(txt);
+        }
         await doO2H(sw, json, config);
         return new Response(arr.join(''), {
           headers: {
