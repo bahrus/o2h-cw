@@ -16,15 +16,28 @@
         form.main-form input {
             width: calc(100vw - 120px);
         }
+        h1, h2, p {
+            margin:5px;
+        }
     </style>
 </head>
 <body>
     <h1>o2h service usage</h1>
     <h2>Introduction</h2>
-    <div>The o2h service aims to provide a codeless way of integrating any third-party RESTful service that returns JSON, but providing it in a format most amenable to the browser -- the service provides a canonical HTML transformation,
+    <p>The o2h service aims to provide a codeless way of integrating any third-party RESTful service that returns JSON, but providing it in a format most amenable to the browser -- the service provides a canonical HTML transformation,
         based on a combination of reflection on the data, combined with a (customizable) configuration
-    </div>
-
+    </p>
+    <p>
+        As we can use with the form below, there are two predefined parts of the url:
+        <ul>
+            <li>The proxy-to parameter.  This parameter goes after the domain name in the path.  Required.</li>
+            <li>
+                The optional "output config" parameter.  This can be any CDN-accessible path to a json configuration file, 
+                modeled after the <a href="https://unpkg.com/o2h-cw/src/o2hConfig.json" rel='noopener' target="_blank">default one.</a>
+            </li>
+        </ul>
+    </p>
+    <p>The sample form below provides buttons that enable adding/setting additional fields.</p>
 
     <form
         class='main-form'
