@@ -13,7 +13,7 @@
     ],
     "booleanProp": [
         "<label>", "label", 
-            ": <input readonly type='checkbox' name='", "path", "' ", "checked", 
+            ": <input disabled type='checkbox' name='", "path", "' ", "checked", 
         "></label>"
     ],
     "arrayProp": [
