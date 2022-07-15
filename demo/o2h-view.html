@@ -12,6 +12,10 @@
         label{
             display:flex;
             margin:10px;
+            align-items:center;
+        }
+        label>span {
+            width:200px;
         }
         form.main-form input {
             width: calc(100vw - 120px);
@@ -65,16 +69,16 @@
         be-valued
     >
         <label>
-            Proxy to: 
+            <span>Proxy to:</span> 
             <input required name='proxy-to' type='url'>
         </label>
         <label>
-            Output config:
+            <span>Output config:</span>
             <input name="x38d47cd9-8a95-4037-9e71-d63f6416a6d5" value="https://unpkg.com/o2h-cw/src/o2hConfig.json">
         </label>
         <label be-typed='{
             "beReformable": true
-        }' be-clonable be-delible>[Click on gear/settings button to set name of first parameter]</label>
+        }' be-clonable be-delible><span>[Set name of first parameter]</span></label>
         <button type='submit'>Submit</button>
     </form> 
     <div -innerHTML></div>
@@ -84,7 +88,7 @@
         <li>
             <a href="https://api.nasa.gov/" rel='noopener' target='_blank'>Nasa Neo:</a>
             <div>
-                Sample Form: <a target='_blank' href="?view=nasa-neo#6ab07062-ae74-4b42-L2Zvcm0=eyJpbm5lckhUTUwiOiJcbiAgICAgICAgPGxhYmVsPlxuICAgICAgICAgICAgUHJveHkgdG86IFxuICAgICAgICAgICAgPGlucHV0IHJlcXVpcmVkPVwiXCIgbmFtZT1cInByb3h5LXRvXCIgdHlwZT1cInVybFwiIHZhbHVlPVwiaHR0cHM6Ly9hcGkubmFzYS5nb3YvbmVvL3Jlc3QvdjEvZmVlZFwiPlxuICAgICAgICA8L2xhYmVsPlxuICAgICAgICA8bGFiZWwgYmUtdHlwZWQ9XCJcIiBiZS1jbG9uYWJsZT1cIlwiIGJlLWRlbGlibGU9XCJcIj5zdGFydF9kYXRlOiA8aW5wdXQgdHlwZT1cImRhdGVcIiBuYW1lPVwic3RhcnRfZGF0ZVwiIHZhbHVlPVwiMjAyMi0wNy0xMVwiPjxidXR0b24gdHlwZT1cImJ1dHRvblwiIGNsYXNzPVwiYmUtdHlwZWQtdHJpZ2dlclwiPuKamTwvYnV0dG9uPjxidXR0b24gdHlwZT1cImJ1dHRvblwiIGNsYXNzPVwiYmUtZGVsaWJsZS10cmlnZ2VyXCI+w5c8L2J1dHRvbj48YnV0dG9uIHR5cGU9XCJidXR0b25cIiBjbGFzcz1cImJlLWNsb25hYmxlLXRyaWdnZXJcIj7inY88L2J1dHRvbj48L2xhYmVsPjxsYWJlbCBiZS10eXBlZD1cIlwiIGJlLWNsb25hYmxlPVwiXCIgYmUtZGVsaWJsZT1cIlwiPmVuZF9kYXRlOiA8aW5wdXQgdHlwZT1cImRhdGVcIiBuYW1lPVwiZW5kX2RhdGVcIiB2YWx1ZT1cIjIwMjItMDctMTNcIj48YnV0dG9uIHR5cGU9XCJidXR0b25cIiBjbGFzcz1cImJlLXR5cGVkLXRyaWdnZXJcIj7impk8L2J1dHRvbj48YnV0dG9uIHR5cGU9XCJidXR0b25cIiBjbGFzcz1cImJlLWRlbGlibGUtdHJpZ2dlclwiPsOXPC9idXR0b24+PGJ1dHRvbiB0eXBlPVwiYnV0dG9uXCIgY2xhc3M9XCJiZS1jbG9uYWJsZS10cmlnZ2VyXCI+4p2PPC9idXR0b24+PC9sYWJlbD48bGFiZWwgYmUtdHlwZWQ9XCJcIiBiZS1jbG9uYWJsZT1cIlwiIGJlLWRlbGlibGU9XCJcIj5hcGlfa2V5OiA8aW5wdXQgdHlwZT1cInRleHRcIiBuYW1lPVwiYXBpX2tleVwiIHZhbHVlPVwiU0RhQlhvNUpweDlTN2g2cjc5a2k3YnhxVkpaWktLblRjT242V1JOcVwiPjxidXR0b24gdHlwZT1cImJ1dHRvblwiIGNsYXNzPVwiYmUtdHlwZWQtdHJpZ2dlclwiPuKamTwvYnV0dG9uPjxidXR0b24gdHlwZT1cImJ1dHRvblwiIGNsYXNzPVwiYmUtZGVsaWJsZS10cmlnZ2VyXCI+w5c8L2J1dHRvbj48YnV0dG9uIHR5cGU9XCJidXR0b25cIiBjbGFzcz1cImJlLWNsb25hYmxlLXRyaWdnZXJcIj7inY88L2J1dHRvbj48L2xhYmVsPlxuICAgICAgICA8YnV0dG9uIHR5cGU9XCJzdWJtaXRcIj5TdWJtaXQ8L2J1dHRvbj5cbiAgICAifQ==-a323-3bbcd5758757">
+                Sample Form: <a target='_blank' href="?api=nasa-neo#6ab07062-ae74-4b42-L2Zvcm0=eyJpbm5lckhUTUwiOiJcbiAgICAgICAgPGxhYmVsPlxuICAgICAgICAgICAgPHNwYW4+UHJveHkgdG86PC9zcGFuPiBcbiAgICAgICAgICAgIDxpbnB1dCByZXF1aXJlZD1cIlwiIG5hbWU9XCJwcm94eS10b1wiIHR5cGU9XCJ1cmxcIiB2YWx1ZT1cImh0dHBzOi8vYXBpLm5hc2EuZ292L25lby9yZXN0L3YxL2ZlZWRcIj5cbiAgICAgICAgPC9sYWJlbD5cbiAgICAgICAgPGxhYmVsPlxuICAgICAgICAgICAgPHNwYW4+T3V0cHV0IGNvbmZpZzo8L3NwYW4+XG4gICAgICAgICAgICA8aW5wdXQgbmFtZT1cIngzOGQ0N2NkOS04YTk1LTQwMzctOWU3MS1kNjNmNjQxNmE2ZDVcIiB2YWx1ZT1cImh0dHBzOi8vdW5wa2cuY29tL28yaC1jdy9zcmMvbzJoQ29uZmlnLmpzb25cIj5cbiAgICAgICAgPC9sYWJlbD5cbiAgICAgICAgPGxhYmVsIGJlLXR5cGVkPVwie1xuICAgICAgICAgICAgJnF1b3Q7YmVSZWZvcm1hYmxlJnF1b3Q7OiB0cnVlXG4gICAgICAgIH1cIiBiZS1jbG9uYWJsZT1cIlwiIGJlLWRlbGlibGU9XCJcIj48c3Bhbj5zdGFydF9kYXRlOiA8L3NwYW4+PGlucHV0IHR5cGU9XCJkYXRlXCIgbmFtZT1cInN0YXJ0X2RhdGVcIiByZXF1aXJlZD1cIlwiIHZhbHVlPVwiMjAyMi0wNy0xMVwiPjxidXR0b24gYXJpYS1sYWJlbD1cIkNvbmZpZ3VyZSBpbnB1dC5cIiB0aXRsZT1cIkNvbmZpZ3VyZSBpbnB1dC5cIiB0eXBlPVwiYnV0dG9uXCIgY2xhc3M9XCJiZS10eXBlZC10cmlnZ2VyXCI+4pqZPC9idXR0b24+PGJ1dHRvbiB0eXBlPVwiYnV0dG9uXCIgY2xhc3M9XCJiZS1jbG9uYWJsZS10cmlnZ2VyXCIgYXJpYS1sYWJlbD1cIkNsb25lIHRoaXMuXCIgdGl0bGU9XCJDbG9uZSB0aGlzLlwiPuKdjzwvYnV0dG9uPjxidXR0b24gdHlwZT1cImJ1dHRvblwiIGNsYXNzPVwiYmUtZGVsaWJsZS10cmlnZ2VyXCI+w5c8L2J1dHRvbj48L2xhYmVsPjxsYWJlbCBiZS10eXBlZD1cIntcbiAgICAgICAgICAgICZxdW90O2JlUmVmb3JtYWJsZSZxdW90OzogdHJ1ZVxuICAgICAgICB9XCIgYmUtY2xvbmFibGU9XCJcIiBiZS1kZWxpYmxlPVwiXCI+PHNwYW4+ZW5kX2RhdGU6IDwvc3Bhbj48aW5wdXQgdHlwZT1cImRhdGVcIiBuYW1lPVwiZW5kX2RhdGVcIiB2YWx1ZT1cIjIwMjItMDctMTFcIj48YnV0dG9uIGFyaWEtbGFiZWw9XCJDb25maWd1cmUgaW5wdXQuXCIgdGl0bGU9XCJDb25maWd1cmUgaW5wdXQuXCIgdHlwZT1cImJ1dHRvblwiIGNsYXNzPVwiYmUtdHlwZWQtdHJpZ2dlclwiPuKamTwvYnV0dG9uPjxidXR0b24gdHlwZT1cImJ1dHRvblwiIGNsYXNzPVwiYmUtY2xvbmFibGUtdHJpZ2dlclwiIGFyaWEtbGFiZWw9XCJDbG9uZSB0aGlzLlwiIHRpdGxlPVwiQ2xvbmUgdGhpcy5cIj7inY88L2J1dHRvbj48YnV0dG9uIHR5cGU9XCJidXR0b25cIiBjbGFzcz1cImJlLWRlbGlibGUtdHJpZ2dlclwiPsOXPC9idXR0b24+PC9sYWJlbD48bGFiZWwgYmUtdHlwZWQ9XCJ7XG4gICAgICAgICAgICAmcXVvdDtiZVJlZm9ybWFibGUmcXVvdDs6IHRydWVcbiAgICAgICAgfVwiIGJlLWNsb25hYmxlPVwiXCIgYmUtZGVsaWJsZT1cIlwiPjxzcGFuPmFwaV9rZXk6IDwvc3Bhbj48aW5wdXQgdHlwZT1cInRleHRcIiBuYW1lPVwiYXBpX2tleVwiIHZhbHVlPVwiMjAyMi0wNy0xMVwiIHJlcXVpcmVkPVwiXCI+PGJ1dHRvbiBhcmlhLWxhYmVsPVwiQ29uZmlndXJlIGlucHV0LlwiIHRpdGxlPVwiQ29uZmlndXJlIGlucHV0LlwiIHR5cGU9XCJidXR0b25cIiBjbGFzcz1cImJlLXR5cGVkLXRyaWdnZXJcIj7impk8L2J1dHRvbj48YnV0dG9uIHR5cGU9XCJidXR0b25cIiBjbGFzcz1cImJlLWNsb25hYmxlLXRyaWdnZXJcIiBhcmlhLWxhYmVsPVwiQ2xvbmUgdGhpcy5cIiB0aXRsZT1cIkNsb25lIHRoaXMuXCI+4p2PPC9idXR0b24+PGJ1dHRvbiB0eXBlPVwiYnV0dG9uXCIgY2xhc3M9XCJiZS1kZWxpYmxlLXRyaWdnZXJcIj7DlzwvYnV0dG9uPjwvbGFiZWw+XG4gICAgICAgIDxidXR0b24gdHlwZT1cInN1Ym1pdFwiPlN1Ym1pdDwvYnV0dG9uPlxuICAgICJ9-a323-3bbcd5758757">
                     Nasa Neo
                 </a>
             </div>
@@ -111,11 +115,11 @@
     </ul>
     <script type="module" crossorigin="anonymous" >
         import "https://esm.run/be-persistent@0.0.26";
-        import "https://esm.run/be-typed@0.0.8";
+        import "https://esm.run/be-typed@0.0.9";
         import "https://esm.run/be-clonable@0.0.7";
         import "https://esm.run/be-delible@0.0.6";
         import "https://esm.run/be-reformable@0.0.49";
-        import "https://esm.run/be-valued@0.0.1"
+        import "https://esm.run/be-valued@0.0.1";
     </script>
 </body>
 </html>

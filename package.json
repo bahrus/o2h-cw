@@ -19,7 +19,7 @@
     "may-it-be": "0.0.163"
   },
   "devDependencies": {
-    "may-it-serve": "0.0.0",
+    "may-it-serve": "0.0.1",
     "concurrently": "7.2.1"
   },
   "author": "",
