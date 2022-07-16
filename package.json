@@ -15,7 +15,7 @@
     "url": "git+https://github.com/bahrus/o2h-cw.git"
   },
   "dependencies": {
-    "o2h": "0.0.11",
+    "o2h": "0.0.14",
     "may-it-be": "0.0.163"
   },
   "devDependencies": {

@@ -2,12 +2,12 @@
     "wrapper": ["<form>", "children", "</form>"],
     "objectProp": [
         "<pld-", "dashed-path", 
-        "><details><summary>", "label", "</summary>", "children", "</details></pld-", "dashed-path"
+        "><details><summary>", "label", "</summary>", "children", "</details></pld-", "dashed-path", ">"
     ],
     "stringProp": [
-        "<label><span slot=", "path", ".label_text>", "label", 
+        "<pld-", "dashed-path", "-string-prop><label><span slot=", "path", ".label_text>", "label", 
             ": </span><input slot=", "path", ".input_value type='text' name='", "path", "' value='", "value", 
-        "'></label>"
+        "'></label></pld-", "dashed-path", "-string-prop>"
     ],
     "numberProp": [
         "<label><span>", "label", 
