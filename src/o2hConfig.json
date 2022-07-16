@@ -2,8 +2,8 @@
     "wrapper": ["<form>", "children", "</form>"],
     "objectProp": ["<details><summary>", "label", "</summary>", "children", "</details>"],
     "stringProp": [
-        "<label><span>", "label", 
-            ": </span><input type='text' name='", "path", "' value='", "value", 
+        "<label><span slot=", "path", ".label_text>", "label", 
+            ": </span><input slot=", "path", ".input_value type='text' name='", "path", "' value='", "value", 
         "'></label>"
     ],
     "numberProp": [
