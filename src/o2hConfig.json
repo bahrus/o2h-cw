@@ -1,6 +1,9 @@
 {
     "wrapper": ["<form>", "children", "</form>"],
-    "objectProp": ["<details><summary>", "label", "</summary>", "children", "</details>"],
+    "objectProp": [
+        "<pld-", "dashed-path", 
+        "><details><summary>", "label", "</summary>", "children", "</details></pld-", "dashed-path"
+    ],
     "stringProp": [
         "<label><span slot=", "path", ".label_text>", "label", 
             ": </span><input slot=", "path", ".input_value type='text' name='", "path", "' value='", "value", 
