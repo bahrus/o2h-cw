@@ -15,12 +15,12 @@
     "url": "git+https://github.com/bahrus/o2h-cw.git"
   },
   "dependencies": {
-    "o2h": "0.0.9",
+    "o2h": "0.0.10",
     "may-it-be": "0.0.163"
   },
   "devDependencies": {
     "may-it-serve": "0.0.1",
-    "concurrently": "7.2.1"
+    "concurrently": "7.2.2"
   },
   "author": "",
   "license": "MIT",

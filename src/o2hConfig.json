@@ -1,27 +1,32 @@
 {
     "wrapper": ["<form>", "children", "</form>"],
-    "objectProp": ["<details><summary be-space-cased>", "label", "</summary>", "children", "</details>"],
+    "objectProp": ["<details><summary>", "label", "</summary>", "children", "</details>"],
     "stringProp": [
-        "<label><span be-space-cased>", "label", 
+        "<label><span>", "label", 
             ": </span><input type='text' name='", "path", "' value='", "value", 
         "'></label>"
     ],
     "numberProp": [
-        "<label><span be-space-cased>", "label", 
+        "<label><span>", "label", 
             ": </span><input type='number' name='", "path", "' value='", "value", 
         "'></label>"
     ],
     "booleanProp": [
-        "<label><span be-space-cased>", "label", 
+        "<label><span>", "label", 
             ": </span><input type='checkbox' name='", "path", "' ", "checked", 
         "></label>"
     ],
     "arrayProp": [
-        "<details><summary be-space-cased>", 
+        "<details><summary>", 
             "label",
         "</summary>", 
             "children",
         "</details>"
     ],
-    "arraySummaryPath": "name"
+    "arraySummaryPath": "name",
+    "makeStringPropLabelTitleCase": true,
+    "makeObjectPropLabelTitleCase": true,
+    "makeNumberPropLabelTitleCase": true,
+    "makeBooleanPropLabelTitleCase": true,
+    "makeArrayPropLabelTitleCase": true
 }
