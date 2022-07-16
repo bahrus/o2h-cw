@@ -1,23 +1,23 @@
 {
     "wrapper": ["<form>", "children", "</form>"],
-    "objectProp": ["<details><summary>", "label", "</summary>", "children", "</details>"],
+    "objectProp": ["<details><summary be-space-cased>", "label", "</summary>", "children", "</details>"],
     "stringProp": [
-        "<label><span>", "label", 
+        "<label><span be-space-cased>", "label", 
             ": </span><input type='text' name='", "path", "' value='", "value", 
         "'></label>"
     ],
     "numberProp": [
-        "<label><span>", "label", 
+        "<label><span be-space-cased>", "label", 
             ": </span><input type='number' name='", "path", "' value='", "value", 
         "'></label>"
     ],
     "booleanProp": [
-        "<label><span>", "label", 
+        "<label><span be-space-cased>", "label", 
             ": </span><input type='checkbox' name='", "path", "' ", "checked", 
         "></label>"
     ],
     "arrayProp": [
-        "<details><summary>", 
+        "<details><summary be-space-cased>", 
             "label",
         "</summary>", 
             "children",
