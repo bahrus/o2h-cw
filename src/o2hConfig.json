@@ -5,9 +5,9 @@
         "><details><summary>", "label", "</summary>", "children", "</details></pld-", "dashed-path", ">"
     ],
     "stringProp": [
-        "<pld-", "dashed-path", "-string-prop><label><span slot=", "path", ".label_text>", "label", 
+        "<pld-", "dashed-path", "><label><span slot=", "path", ".label_text>", "label", 
             ": </span><input slot=", "path", ".input_value type='text' name='", "path", "' value='", "value", 
-        "'></label></pld-", "dashed-path", "-string-prop>"
+        "'></label></pld-", "dashed-path", ">"
     ],
     "numberProp": [
         "<label><span>", "label", 
@@ -31,5 +31,8 @@
     "makeObjectPropLabelTitleCase": true,
     "makeNumberPropLabelTitleCase": true,
     "makeBooleanPropLabelTitleCase": true,
-    "makeArrayPropLabelTitleCase": true
+    "makeArrayPropLabelTitleCase": true,
+    "propsWithKeyPatterns": {
+        "near_earth_objects": "date"
+    }
 }
