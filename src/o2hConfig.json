@@ -2,22 +2,22 @@
     "wrapper": ["<form>", "children", "</form>"],
     "objectProp": [
         "<pld-", "dashed-path", 
-        "><details><summary>", "label", "</summary>", "children", "</details></pld-", "dashed-path", ">"
+        "><details><summary slot=summary-text>", "label", "</summary>", "children", "</details></pld-", "dashed-path", ">"
     ],
     "stringProp": [
-        "<pld-", "dashed-path", "><label><span slot=", "path", ".label_text>", "label", 
-            ": </span><input slot=", "path", ".input_value type='text' name='", "path", "' value='", "value", 
+        "<pld-", "dashed-path", "><label><span slot=label-text>", "label", 
+            ": </span><input be-duck-typed slot=input-value type='text' name='", "path", "' value='", "value", 
         "'></label></pld-", "dashed-path", ">"
     ],
     "numberProp": [
-        "<label><span>", "label", 
-            ": </span><input type='number' name='", "path", "' value='", "value", 
-        "'></label>"
+        "<pld-", "dashed-path", "><label><span slot=label-text>", "label", 
+            ": </span><input slot=input-value type='number' name='", "path", "' value='", "value", 
+        "'></label></pld-", "dashed-path", ">"
     ],
     "booleanProp": [
-        "<label><span>", "label", 
-            ": </span><input type='checkbox' name='", "path", "' ", "checked", 
-        "></label>"
+        "<pld-", "dashed-path", "><label><span slot=label-text>", "label", 
+            ": </span><input slot=input-value type='checkbox' name='", "path", "' ", "checked", 
+        "></label></pld-", "dashed-path", ">"
     ],
     "arrayProp": [
         "<details><summary>", 
