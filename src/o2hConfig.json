@@ -2,7 +2,7 @@
     "wrapper": ["<form>", "children", "</form>"],
     "objectProp": [
         "<pld-", "dashed-path", 
-        "><details><summary slot=summary-text>", "label", "</summary>", "children", "</details></pld-", "dashed-path", ">"
+        "><template shadowroot=open><details><summary slot=summary-text>", "label", "</summary>", "children", "</details></template></pld-", "dashed-path", ">"
     ],
     "stringProp": [
         "<pld-", "dashed-path", "><label><span slot=label-text>", "label", 

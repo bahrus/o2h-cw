@@ -16,7 +16,14 @@
   },
   "dependencies": {
     "o2h": "0.0.18",
-    "may-it-be": "0.0.163"
+    "may-it-be": "0.0.163",
+    "be-clonable": "0.0.7",
+    "be-delible": "0.0.6",
+    "be-duck-typed": "0.0.1",
+    "be-persistent": "0.0.26",
+    "be-reformable": "0.0.57",
+    "be-typed": "0.0.9",
+    "be-valued": "0.0.1"
   },
   "devDependencies": {
     "may-it-serve": "0.0.1",
