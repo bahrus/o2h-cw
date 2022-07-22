@@ -2,22 +2,22 @@
     "wrapper": ["<form>", "children", "</form>"],
     "objectProp": [
         "<pld-", "dashed-path", 
-        "><template shadowroot=open><details><summary slot=summary-text>", "label", "</summary>", "children", "</details></template></pld-", "dashed-path", ">"
+        " itemscope><template shadowroot=open><details><summary slot=summary-text>", "label", "</summary>", "children", "</details></template></pld-", "dashed-path", ">"
     ],
     "stringProp": [
-        "<pld-", "dashed-path", "><label><span slot=label-text>", "label", 
-            ": </span><input be-duck-typed slot=input-value type='text' name='", "path", "' value='", "value", 
-        "'></label></pld-", "dashed-path", ">"
+        "<pld-", "dashed-path", "><label part='label label-", "key",  "' slot=label for='", "key", "'>", "label", 
+            ": </label><input id='", "key", "' be-duck-typed slot=input type='text' name='", "key", "' value='", "value", 
+        "'></pld-", "dashed-path", ">"
     ],
     "numberProp": [
-        "<pld-", "dashed-path", "><label><span slot=label-text>", "label", 
-            ": </span><input slot=input-value type='number' name='", "path", "' value='", "value", 
-        "'></label></pld-", "dashed-path", ">"
+        "<pld-", "dashed-path", "><label part='label label-", "key",  "' slot=label for='", "key", "'>", "label", 
+            ": </label><input id='", "key", "' slot=input type='number' name='", "key", "' value='", "value", 
+        "'></pld-", "dashed-path", ">"
     ],
     "booleanProp": [
-        "<pld-", "dashed-path", "><label><span slot=label-text>", "label", 
-            ": </span><input slot=input-value type='checkbox' name='", "path", "' ", "checked", 
-        "></label></pld-", "dashed-path", ">"
+        "<pld-", "dashed-path", "><label part='label label-", "key",  "' slot=label for='", "key", "'>", "label", 
+        ": </label><input id='", "key", "' slot=input type='checkbox' name='", "key", "' value='", "checked", 
+    "'></pld-", "dashed-path", ">"
     ],
     "arrayProp": [
         "<details><summary>", 
