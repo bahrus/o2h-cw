@@ -20,7 +20,7 @@ export function doO2H(sw: (s: string) => void, obj: any, config: O2HConfig) : Pr
 
 export default {
   async fetch(request: Request): Promise<Response> {
-    const configQryP = "x38d47cd9-8a95-4037-9e71-d63f6416a6d5";
+    const configQryP = "o2h-config-url";
     const url = request.url;
 
     const strippedOfProtocol = url.replace('https://', '').replace('http://', '');

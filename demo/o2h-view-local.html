@@ -32,7 +32,7 @@
         based on a combination of reflection on the data, combined with a (customizable) configuration
     </p>
     <p>
-        As we can use with the form below, there are two predefined parts of the url:
+        As we can see with the form below, there are two predefined parts of the url:
         <ul>
             <li>The proxy-to parameter.  This parameter goes after the domain name in the path.  Required.</li>
             <li>
@@ -42,8 +42,14 @@
         </ul>
     </p>
     <p>The sample form below provides buttons that enable adding/setting additional fields.</p>
-
+    <label>
+        Wrapper:
+        <textarea data-optional='true' data-header-name='o2h-wrapper' form='main-form'>
+            ["<form>", "children", "</form>"]
+        </textarea>
+    </label>
     <form
+        id='main-form'
         class='main-form'
         action="http://localhost:8787/"
         target="[-innerHTML]"
@@ -64,6 +70,8 @@
         }' 
         be-reformable='{
             "autoSubmit": false,
+            "filterOutDefaultValues": true,
+            "headers": true,
             "path": ["", "proxy-to"],
             "transform": {
                 "input": [{},{},{"a": ["b"]}]
@@ -76,12 +84,12 @@
             <input autofocus be-focused required name='proxy-to' type='url'>
         </label>
         <label>
-            <label>
-                Output config:
-                <input name="x38d47cd9-8a95-4037-9e71-d63f6416a6d5" value="http://localhost:3030/src/o2hConfigReadOnly.json">
-            </label>
+            Output config:
+            <input data-header-name="o2h-config-url" data-default="http://localhost:3030/src/o2hConfig.json" value="http://localhost:3030/src/o2hConfig.json">
         </label>
-        <label be-typed be-clonable be-delible>[Click on gear/settings button to set name of first parameter]</label>
+            
+
+        <label be-typed be-clonable be-delible><span>[Click on gear/settings button to set name of first parameter]</span></label>
         <button type='submit'>Submit</button>
     </form> 
     <div -innerHTML></div>
@@ -122,7 +130,7 @@
         import "https://esm.run/be-duck-typed@0.0.1";
         import "https://esm.run/be-focused@0.0.1";
         import "https://esm.run/be-persistent@0.0.26";
-        import "https://esm.run/be-reformable@0.0.57";
+        import "https://esm.run/be-reformable@0.0.61";
         import "https://esm.run/be-typed@0.0.9";
         import "https://esm.run/be-valued@0.0.1";
         
