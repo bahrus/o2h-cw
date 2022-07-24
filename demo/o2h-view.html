@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usage</title>
+    <title>Usage - Local</title>
     <style>
         @import "https://unpkg.com/open-props";
         @import "https://unpkg.com/open-props/normalize.min.css";
@@ -23,6 +23,10 @@
         h1, h2, p {
             margin:5px;
         }
+        textarea{
+            width: 800px;
+            height: 200px;
+        }
     </style>
 </head>
 <body>
@@ -32,7 +36,7 @@
         based on a combination of reflection on the data, combined with a (customizable) configuration
     </p>
     <p>
-        As we can use with the form below, there are two predefined parts of the url:
+        As we can see with the form below, there are two predefined parts of the url:
         <ul>
             <li>The proxy-to parameter.  This parameter goes after the domain name in the path.  Required.</li>
             <li>
@@ -42,8 +46,65 @@
         </ul>
     </p>
     <p>The sample form below provides buttons that enable adding/setting additional fields.</p>
-
+    <details>
+        <summary>Output config in detail</summary>
+    
+        <label>
+            Wrapper:
+            <textarea data-optional='true'  form='main-form' data-header-name='o2h-wrapper'>
+                ["<form>", "children", "</form>"]
+            </textarea>
+        </label>
+        <label>
+            Object Prop:
+            <textarea data-optional='true'  form='main-form' data-header-name='o2h-objectProp'>
+                [
+            "<pld-", "dashed-path", 
+            " itemscope><template shadowroot=open><details><summary slot=summary-text>", "label", "</summary>", "children", "</details></template></pld-", "dashed-path", ">"
+                ]
+            </textarea>
+        </label>
+        <label>
+            String Prop:
+            <textarea data-optional="true" form='main-form' data-header-name="o2h-stringProp">
+                [
+                "<pld-", "dashed-path", "><label part='label label-", "key",  "' slot=label for='", "key", "'>", "label", 
+                    ": </label><input id='", "key", "' be-duck-typed slot=input type='text' name='", "key", "' value='", "value", 
+                "'></pld-", "dashed-path", ">"
+            ]
+            </textarea>
+        </label>
+        <label>
+            Number Prop:
+            <textarea data-optional="true" form='main-form' data-header-name="o2h-numberProp">
+                [
+        "<pld-", "dashed-path", "><label part='label label-", "key",  "' slot=label for='", "key", "'>", "label", 
+            ": </label><input id='", "key", "' slot=input type='number' name='", "key", "' value='", "value", 
+        "'></pld-", "dashed-path", ">"
+    ]
+            </textarea>
+        </label>
+        <label>
+            Boolean Prop:
+            <textarea data-optional="true" form='main-form' data-header-name="o2h-booleanProp">
+                [
+        "<pld-", "dashed-path", "><label part='label label-", "key",  "' slot=label for='", "key", "'>", "label", 
+        ": </label><input id='", "key", "' slot=input type='checkbox' name='", "key", "' value='", "checked", 
+    "'></pld-", "dashed-path", ">"
+    ]
+            </textarea>
+        </label>
+        <label>
+            Props with Key patterns:
+            <textarea data-optional="true" form='main-form' data-header-name="o2h-propWithKeyPatterns">
+                {
+                    "near_earth_objects": "date"
+                }
+            </textarea>
+        </label>
+    </details>
     <form
+        id='main-form'
         class='main-form'
         action="https://o2h-cw.bahrus.workers.dev/"
         target="[-innerHTML]"
@@ -64,6 +125,8 @@
         }' 
         be-reformable='{
             "autoSubmit": false,
+            "filterOutDefaultValues": true,
+            "headers": true,
             "path": ["", "proxy-to"],
             "transform": {
                 "input": [{},{},{"a": ["b"]}]
@@ -72,16 +135,16 @@
         be-valued
     >
         <label>
-            <span>Proxy to:</span> 
+            Proxy to: 
             <input autofocus be-focused required name='proxy-to' type='url'>
         </label>
         <label>
-            <span>Output config:</span>
-            <input name="x38d47cd9-8a95-4037-9e71-d63f6416a6d5" value="https://unpkg.com/o2h-cw/src/o2hConfig.json">
+            Output config:
+            <input data-header-name="o2h-config-url" data-optional="true" value="http://localhost:3030/src/o2hConfig.json">
         </label>
-        <label be-typed='{
-            "beReformable": true
-        }' be-clonable be-delible><span>[Set name of first parameter]</span></label>
+            
+
+        <label be-typed be-clonable be-delible><span>[Click on gear/settings button to set name of first parameter]</span></label>
         <button type='submit'>Submit</button>
     </form> 
     <div -innerHTML></div>
@@ -91,7 +154,7 @@
         <li>
             <a href="https://api.nasa.gov/" rel='noopener' target='_blank'>Nasa Neo:</a>
             <div>
-                Sample Form: <a target='_blank' href="?api=nasa-neo#6ab07062-ae74-4b42-L2Zvcm0=eyJpbm5lckhUTUwiOiJcbiAgICAgICAgPGxhYmVsPlxuICAgICAgICAgICAgPHNwYW4+UHJveHkgdG86PC9zcGFuPiBcbiAgICAgICAgICAgIDxpbnB1dCByZXF1aXJlZD1cIlwiIG5hbWU9XCJwcm94eS10b1wiIHR5cGU9XCJ1cmxcIiB2YWx1ZT1cImh0dHBzOi8vYXBpLm5hc2EuZ292L25lby9yZXN0L3YxL2ZlZWRcIj5cbiAgICAgICAgPC9sYWJlbD5cbiAgICAgICAgPGxhYmVsPlxuICAgICAgICAgICAgPHNwYW4+T3V0cHV0IGNvbmZpZzo8L3NwYW4+XG4gICAgICAgICAgICA8aW5wdXQgbmFtZT1cIngzOGQ0N2NkOS04YTk1LTQwMzctOWU3MS1kNjNmNjQxNmE2ZDVcIiB2YWx1ZT1cImh0dHBzOi8vdW5wa2cuY29tL28yaC1jdy9zcmMvbzJoQ29uZmlnLmpzb25cIj5cbiAgICAgICAgPC9sYWJlbD5cbiAgICAgICAgPGxhYmVsIGJlLXR5cGVkPVwie1xuICAgICAgICAgICAgJnF1b3Q7YmVSZWZvcm1hYmxlJnF1b3Q7OiB0cnVlXG4gICAgICAgIH1cIiBiZS1jbG9uYWJsZT1cIlwiIGJlLWRlbGlibGU9XCJcIj48c3Bhbj5zdGFydF9kYXRlOiA8L3NwYW4+PGlucHV0IHR5cGU9XCJkYXRlXCIgbmFtZT1cInN0YXJ0X2RhdGVcIiByZXF1aXJlZD1cIlwiIHZhbHVlPVwiMjAyMi0wNy0xMVwiPjxidXR0b24gYXJpYS1sYWJlbD1cIkNvbmZpZ3VyZSBpbnB1dC5cIiB0aXRsZT1cIkNvbmZpZ3VyZSBpbnB1dC5cIiB0eXBlPVwiYnV0dG9uXCIgY2xhc3M9XCJiZS10eXBlZC10cmlnZ2VyXCI+4pqZPC9idXR0b24+PGJ1dHRvbiB0eXBlPVwiYnV0dG9uXCIgY2xhc3M9XCJiZS1jbG9uYWJsZS10cmlnZ2VyXCIgYXJpYS1sYWJlbD1cIkNsb25lIHRoaXMuXCIgdGl0bGU9XCJDbG9uZSB0aGlzLlwiPuKdjzwvYnV0dG9uPjxidXR0b24gdHlwZT1cImJ1dHRvblwiIGNsYXNzPVwiYmUtZGVsaWJsZS10cmlnZ2VyXCI+w5c8L2J1dHRvbj48L2xhYmVsPjxsYWJlbCBiZS10eXBlZD1cIntcbiAgICAgICAgICAgICZxdW90O2JlUmVmb3JtYWJsZSZxdW90OzogdHJ1ZVxuICAgICAgICB9XCIgYmUtY2xvbmFibGU9XCJcIiBiZS1kZWxpYmxlPVwiXCI+PHNwYW4+ZW5kX2RhdGU6IDwvc3Bhbj48aW5wdXQgdHlwZT1cImRhdGVcIiBuYW1lPVwiZW5kX2RhdGVcIiB2YWx1ZT1cIjIwMjItMDctMTFcIj48YnV0dG9uIGFyaWEtbGFiZWw9XCJDb25maWd1cmUgaW5wdXQuXCIgdGl0bGU9XCJDb25maWd1cmUgaW5wdXQuXCIgdHlwZT1cImJ1dHRvblwiIGNsYXNzPVwiYmUtdHlwZWQtdHJpZ2dlclwiPuKamTwvYnV0dG9uPjxidXR0b24gdHlwZT1cImJ1dHRvblwiIGNsYXNzPVwiYmUtY2xvbmFibGUtdHJpZ2dlclwiIGFyaWEtbGFiZWw9XCJDbG9uZSB0aGlzLlwiIHRpdGxlPVwiQ2xvbmUgdGhpcy5cIj7inY88L2J1dHRvbj48YnV0dG9uIHR5cGU9XCJidXR0b25cIiBjbGFzcz1cImJlLWRlbGlibGUtdHJpZ2dlclwiPsOXPC9idXR0b24+PC9sYWJlbD48bGFiZWwgYmUtdHlwZWQ9XCJ7XG4gICAgICAgICAgICAmcXVvdDtiZVJlZm9ybWFibGUmcXVvdDs6IHRydWVcbiAgICAgICAgfVwiIGJlLWNsb25hYmxlPVwiXCIgYmUtZGVsaWJsZT1cIlwiPjxzcGFuPmFwaV9rZXk6IDwvc3Bhbj48aW5wdXQgdHlwZT1cInRleHRcIiBuYW1lPVwiYXBpX2tleVwiIHZhbHVlPVwiMjAyMi0wNy0xMVwiIHJlcXVpcmVkPVwiXCI+PGJ1dHRvbiBhcmlhLWxhYmVsPVwiQ29uZmlndXJlIGlucHV0LlwiIHRpdGxlPVwiQ29uZmlndXJlIGlucHV0LlwiIHR5cGU9XCJidXR0b25cIiBjbGFzcz1cImJlLXR5cGVkLXRyaWdnZXJcIj7impk8L2J1dHRvbj48YnV0dG9uIHR5cGU9XCJidXR0b25cIiBjbGFzcz1cImJlLWNsb25hYmxlLXRyaWdnZXJcIiBhcmlhLWxhYmVsPVwiQ2xvbmUgdGhpcy5cIiB0aXRsZT1cIkNsb25lIHRoaXMuXCI+4p2PPC9idXR0b24+PGJ1dHRvbiB0eXBlPVwiYnV0dG9uXCIgY2xhc3M9XCJiZS1kZWxpYmxlLXRyaWdnZXJcIj7DlzwvYnV0dG9uPjwvbGFiZWw+XG4gICAgICAgIDxidXR0b24gdHlwZT1cInN1Ym1pdFwiPlN1Ym1pdDwvYnV0dG9uPlxuICAgICJ9-a323-3bbcd5758757">
+                Sample Form: <a target='_blank' href="?api=nasa-neo#6ab07062-ae74-4b42-L2Zvcm0jbWFpbi1mb3JteyJpbm5lckhUTUwiOiJcbiAgICAgICAgPGxhYmVsPlxuICAgICAgICAgICAgUHJveHkgdG86IFxuICAgICAgICAgICAgPGlucHV0IGF1dG9mb2N1cz1cIlwiIHJlcXVpcmVkPVwiXCIgbmFtZT1cInByb3h5LXRvXCIgdHlwZT1cInVybFwiIHZhbHVlPVwiaHR0cHM6Ly9hcGkubmFzYS5nb3YvbmVvL3Jlc3QvdjEvZmVlZFwiIGJlLWZvY3VzZWQ9XCJcIj5cbiAgICAgICAgPC9sYWJlbD5cbiAgICAgICAgPGxhYmVsPlxuICAgICAgICAgICAgT3V0cHV0IGNvbmZpZzpcbiAgICAgICAgICAgIDxpbnB1dCBkYXRhLWhlYWRlci1uYW1lPVwibzJoLWNvbmZpZy11cmxcIiBkYXRhLWRlZmF1bHQ9XCJodHRwOi8vbG9jYWxob3N0OjMwMzAvc3JjL28yaENvbmZpZy5qc29uXCIgdmFsdWU9XCJodHRwOi8vbG9jYWxob3N0OjMwMzAvc3JjL28yaENvbmZpZy5qc29uXCI+XG4gICAgICAgIDwvbGFiZWw+XG4gICAgICAgICAgICBcblxuICAgICAgICA8bGFiZWwgYmUtY2xvbmFibGU9XCJcIiBiZS1kZWxpYmxlPVwiXCIgYmUtdHlwZWQ9XCJcIj48c3Bhbj5zdGFydF9kYXRlOiA8L3NwYW4+PGlucHV0IHR5cGU9XCJkYXRlXCIgbmFtZT1cInN0YXJ0X2RhdGVcIiB2YWx1ZT1cIjIwMjItMDctMDZcIj48YnV0dG9uIGFyaWEtbGFiZWw9XCJDb25maWd1cmUgaW5wdXQuXCIgdGl0bGU9XCJDb25maWd1cmUgaW5wdXQuXCIgdHlwZT1cImJ1dHRvblwiIGNsYXNzPVwiYmUtdHlwZWQtdHJpZ2dlclwiPuKamTwvYnV0dG9uPjxidXR0b24gdHlwZT1cImJ1dHRvblwiIGNsYXNzPVwiYmUtY2xvbmFibGUtdHJpZ2dlclwiIGFyaWEtbGFiZWw9XCJDbG9uZSB0aGlzLlwiIHRpdGxlPVwiQ2xvbmUgdGhpcy5cIj7inY88L2J1dHRvbj48YnV0dG9uIHR5cGU9XCJidXR0b25cIiBjbGFzcz1cImJlLWRlbGlibGUtdHJpZ2dlclwiPsOXPC9idXR0b24+PC9sYWJlbD48bGFiZWwgYmUtY2xvbmFibGU9XCJcIiBiZS1kZWxpYmxlPVwiXCIgYmUtdHlwZWQ9XCJcIj48c3Bhbj5lbmRfZGF0ZTogPC9zcGFuPjxpbnB1dCB0eXBlPVwiZGF0ZVwiIG5hbWU9XCJlbmRfZGF0ZVwiIHZhbHVlPVwiMjAyMi0wNy0xMVwiPjxidXR0b24gYXJpYS1sYWJlbD1cIkNvbmZpZ3VyZSBpbnB1dC5cIiB0aXRsZT1cIkNvbmZpZ3VyZSBpbnB1dC5cIiB0eXBlPVwiYnV0dG9uXCIgY2xhc3M9XCJiZS10eXBlZC10cmlnZ2VyXCI+4pqZPC9idXR0b24+PGJ1dHRvbiB0eXBlPVwiYnV0dG9uXCIgY2xhc3M9XCJiZS1jbG9uYWJsZS10cmlnZ2VyXCIgYXJpYS1sYWJlbD1cIkNsb25lIHRoaXMuXCIgdGl0bGU9XCJDbG9uZSB0aGlzLlwiPuKdjzwvYnV0dG9uPjxidXR0b24gdHlwZT1cImJ1dHRvblwiIGNsYXNzPVwiYmUtZGVsaWJsZS10cmlnZ2VyXCI+w5c8L2J1dHRvbj48L2xhYmVsPjxsYWJlbCBiZS1jbG9uYWJsZT1cIlwiIGJlLWRlbGlibGU9XCJcIiBiZS10eXBlZD1cIlwiPjxzcGFuPmFwaV9rZXk6IDwvc3Bhbj48aW5wdXQgdHlwZT1cInRleHRcIiBuYW1lPVwiYXBpX2tleVwiIHZhbHVlPVwiU0RhQlhvNUpweDlTN2g2cjc5a2k3YnhxVkpaWktLblRjT242V1JOcVwiPjxidXR0b24gYXJpYS1sYWJlbD1cIkNvbmZpZ3VyZSBpbnB1dC5cIiB0aXRsZT1cIkNvbmZpZ3VyZSBpbnB1dC5cIiB0eXBlPVwiYnV0dG9uXCIgY2xhc3M9XCJiZS10eXBlZC10cmlnZ2VyXCI+4pqZPC9idXR0b24+PGJ1dHRvbiB0eXBlPVwiYnV0dG9uXCIgY2xhc3M9XCJiZS1jbG9uYWJsZS10cmlnZ2VyXCIgYXJpYS1sYWJlbD1cIkNsb25lIHRoaXMuXCIgdGl0bGU9XCJDbG9uZSB0aGlzLlwiPuKdjzwvYnV0dG9uPjxidXR0b24gdHlwZT1cImJ1dHRvblwiIGNsYXNzPVwiYmUtZGVsaWJsZS10cmlnZ2VyXCI+w5c8L2J1dHRvbj48L2xhYmVsPlxuICAgICAgICA8YnV0dG9uIHR5cGU9XCJzdWJtaXRcIj5TdWJtaXQ8L2J1dHRvbj5cbiAgICAifQ==-a323-3bbcd5758757">
                     Nasa Neo
                 </a>
             </div>
@@ -122,9 +185,10 @@
         import "https://esm.run/be-duck-typed@0.0.1";
         import "https://esm.run/be-focused@0.0.1";
         import "https://esm.run/be-persistent@0.0.26";
-        import "https://esm.run/be-reformable@0.0.58";
+        import "https://esm.run/be-reformable@0.0.61";
         import "https://esm.run/be-typed@0.0.9";
         import "https://esm.run/be-valued@0.0.1";
+        
     </script>
 </body>
 </html>
