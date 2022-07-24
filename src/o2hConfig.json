@@ -32,7 +32,5 @@
     "makeNumberPropLabelTitleCase": true,
     "makeBooleanPropLabelTitleCase": true,
     "makeArrayPropLabelTitleCase": true,
-    "propsWithKeyPatterns": {
-        "near_earth_objects": "date"
-    }
+    "propsWithKeyPatterns": {}
 }
