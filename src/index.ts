@@ -33,7 +33,7 @@ export default {
     const newUrl = rest;
     const response = await fetch(newUrl);
     const contentType = response.headers.get('content-type');
-    console.log({contentType});
+    //console.log({contentType});
     if(contentType && contentType.indexOf('application/json') >= 0){
         const json = await response.json();
         const arr: string[] = [];
@@ -42,14 +42,23 @@ export default {
           arr.push(s);
         }
         let config = o2hConfig as any as O2HConfig;
-        const u = new URL(url);
-        const configOverride = u.searchParams.get(configQryP);
+        //const u = new URL(url);
+        const headers = request.headers;
+        const configOverride = headers.get(configQryP); // u.searchParams.get(configQryP);
         console.log('configOverride = ' + configOverride);
         if(configOverride !== null && configOverride !== 'https://unpkg.com/o2h-cw/src/o2hConfig.json'){
           //TODO:  cache
           const resp = await fetch(configOverride);
           const txt = await resp.text();
+          console.log('txt = ' + txt);
           config = JSON.parse(txt);
+        }
+        const headerParams = ['o2h-wrapper'];
+        for(const h of headerParams){
+          const hp = headers.get(h);
+          if(hp !== null){
+            (<any>config)[h.replace('o2h-', '')] = JSON.parse(hp);
+          }
         }
         await doO2H(sw, json, config);
         return new Response(arr.join(''), {
